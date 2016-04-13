@@ -172,9 +172,9 @@ ChilledSoda.java
   }
 ```
 
-`ChilledSoda` implements `CoolDrink` and has a constructor which can take other coolDrink. this is how it improves the behavior of the coolDrink inside it.
+`ChilledSoda` implements `CoolDrink` and has a constructor which can take other CoolDrink. Now ChilledSoda can add more functionality to the `CoolDrink` that it got from the constructor.
 
-Same with `SweetSoda`. `SweetSoda` takes other coolDrink inside and then add more functionality to it.
+Same with `SweetSoda`. `SweetSoda` takes other CoolDrink inside and then adds more functionality to it.
 
 SweetSoda.java
 ```java
