@@ -36,13 +36,18 @@
 ## Caveats
 
 Ensure thread safety.
+
 Multi threaded access may lead to multiple objects.
+
 [Can the object be created using java reflection in case of private constructor](http://stackoverflow.com/questions/2599440/how-can-i-access-a-private-constructor-of-a-class)
 
 
 ## Warning
+
 Class having a private constructor can be instantiated using reflection in java
+
 This can be achieved using reflection.
+
 Consider for a class Test, with a private constructor:
 
 ```java
