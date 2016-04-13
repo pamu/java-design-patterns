@@ -69,6 +69,6 @@ Scala provides `Object` key word to create a singleton object and cuts lot of co
 
   }
 
-  Singleton Object is real singleton and is instantiated by the runtime.
-
 ```
+
+Scala runtime ensures that there is only one object of `Singleton`.
