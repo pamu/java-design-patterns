@@ -98,3 +98,101 @@ Scala provides `Object` keyword to create a singleton object and cuts lot of com
 ```
 
 Scala runtime ensures that there is only one object of `Singleton`.
+
+## Decorator Pattern
+
+Decorator Pattern adds extra functionality to the plain inner core object of some type.
+
+For example a `Cat` can be made into a `Shiny Cat` which glows
+
+Another example is, a `PlainSoda` can be made into a `SweetSoda` with better taste and added cost :P.
+
+Decorator.java
+```java
+
+  public class Decorator {
+    public static void main(String ... args) {
+      CoolDrink coolDrink = new ChilledSoda(new SweetSoda(new PlainSoda()));
+      System.out.println(coolDrink.taste());
+      System.out.println(coolDrink.cost());
+    }
+  }
+
+```
+
+Lets take a cool drink which is a Soda and add a quality called as `chilled` and then make it sweet
+
+interface `CoolDrink`
+```java
+  interface CoolDrink {
+    String taste();
+    float cost();
+  }
+```
+Above interface has two methods `taste` and `cost`
+
+
+PlainSoda.java
+```java
+  class PlainSoda implements CoolDrink {
+
+    public PlainSoda() {
+    }
+
+    public String taste() {
+      return "Soda";
+    }
+
+    public float cost() {
+      return 10;
+    }
+
+  }
+```
+
+Note: `PlainSoda` implements `CoolDrink` but do not take any parameters through the constructor.
+
+
+ChilledSoda.java
+```java
+  class ChilledSoda implements CoolDrink {
+    CoolDrink coolDrink;
+
+    public ChilledSoda(CoolDrink coolDrink) {
+      this.coolDrink = coolDrink;
+    }
+
+    public String taste() {
+      return "Chilled " + coolDrink.taste();
+    }
+
+    public float cost() {
+      return 10 +  coolDrink.cost();
+    }
+  }
+```
+
+`ChilledSoda` implements `CoolDrink` and has a constructor which can take other coolDrink. this is how it improves the behavior of the coolDrink inside it.
+
+Same with `SweetSoda`. `SweetSoda` takes other coolDrink inside and then add more functionality to it.
+
+SweetSoda.java
+```java
+  class SweetSoda implements CoolDrink {
+
+    CoolDrink coolDrink;
+
+    public SweetSoda(CoolDrink coolDrink) {
+      this.coolDrink = coolDrink;
+    }
+
+    public String taste() {
+      return "Sweet " + coolDrink.taste();
+    }
+
+    public float cost() {
+      return 10 +  coolDrink.cost();
+    }
+
+  }
+```
