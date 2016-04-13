@@ -1,5 +1,4 @@
-# java-design-patterns
-Java Design Patterns
+# Java Design Patterns
 
 ## Singleton Pattern
 
