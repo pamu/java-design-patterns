@@ -38,3 +38,32 @@
 Ensure thread safety.
 Multi threaded access may lead to multiple objects.
 [Can the object be created using java reflection in case of private constructor](http://stackoverflow.com/questions/2599440/how-can-i-access-a-private-constructor-of-a-class)
+
+
+## Warning
+Class having a private constructor can be instantiated using reflection in java
+This can be achieved using reflection.
+Consider for a class Test, with a private constructor:
+
+```java
+
+  Constructor<?> constructor  = Test.class.getDeclaredConstructor(Context.class, String[].class);
+  Assert.assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+  constructor.setAccessible(true);
+  Object instance = constructor.newInstance(context, (Object)new String[0]);
+
+```
+
+## Scala to the rescue
+
+Scala provides `Object` key word to create a singleton object and cuts lot of complexity and errors
+
+```scala
+
+  object Singleton {
+
+  }
+
+  Singleton Object is real singleton and is instantiated by the runtime.
+
+```
