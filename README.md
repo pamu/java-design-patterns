@@ -196,3 +196,53 @@ SweetSoda.java
 
   }
 ```
+
+## Strategy Pattern
+
+This pattern makes some piece of logic/algorithm replaceable because all the contending algos inherit from a common interface.
+
+```java
+
+  interface Sorting  {
+    void sort();
+  }
+
+```
+
+```java
+
+  class QuickSort implements Sorting {
+    public void sort() { System.out.println("QuickSorting");}
+  }
+
+```
+
+```java
+
+  class MergeSort implements Sorting {
+    public void sort() { System.out.println("MergeSorting");}
+  }
+
+```
+
+```java
+
+  public class StrategyPattern {
+    public static void main(String ... args) {
+      SortUtils sortUtils = new SortUtils();
+      sortUtils.sortItems(new QuickSort());
+      sortUtils.sortItems(new MergeSort());
+    }
+  }
+
+  class SortUtils {
+    void sortItems(Sorting sortingMethod)  {
+      sortingMethod.sort();
+    }
+  }
+
+```
+
+Note that: SortUtils can replace the sorting algo easily when ever it wants.
+
+## Command Pattern
