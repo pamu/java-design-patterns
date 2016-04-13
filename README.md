@@ -19,7 +19,7 @@ Java Design Patterns
 
 ```
 
-## Main problem to run
+## Singleton Check
 
 ```java
   public class Singleton {
