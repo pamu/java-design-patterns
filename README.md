@@ -18,7 +18,7 @@
 
 ```
 
-## Singleton Check
+### Singleton Check
 
 ```java
   public class Singleton {
