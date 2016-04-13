@@ -59,6 +59,32 @@ Consider for a class Test, with a private constructor:
 
 ```
 
+```java
+
+  import java.lang.reflect.Constructor;
+
+  public class Example {
+    public static void main(final String[] args) throws Exception {
+      Constructor<Foo> constructor = Foo.class.getDeclaredConstructor(new Class[0]);
+      constructor.setAccessible(true);
+      Foo foo = constructor.newInstance(new Object[0]);
+      System.out.println(foo);
+    }
+  }
+
+  class Foo {
+    private Foo() {
+      // private!
+    }
+
+    @Override
+    public String toString() {
+      return "I'm a Foo and I'm alright!";
+    }
+  }
+
+```
+
 ### Scala to the rescue
 
 Scala provides `Object` keyword to create a singleton object and cuts lot of complexity and errors
